@@ -1,0 +1,114 @@
+/* ------------------ Base / Reset ------------------ */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #fafafa;
+  --fg: #111;
+  --muted: #777;
+  --border: #ddd;
+  --border-soft: #eee;
+  --card: #fff;
+  --accent: #111;
+}
+body { font-family: 'Segoe UI', Tahoma, sans-serif; color: var(--fg); background: var(--bg); }
+
+/* ------------------ Layout ------------------ */
+.container { max-width: 1100px; margin: 0 auto; padding: 24px; display: grid; gap: 16px; }
+.container.narrow { max-width: 720px; }
+
+/* ------------------ Header & Tabs ------------------ */
+header { display:flex; align-items:center; justify-content:space-between; margin-bottom: 16px; }
+.tabs { display:flex; gap:8px; }
+.tabs button {
+  padding:8px 12px; border:1px solid var(--border); background:#fff; border-radius:8px; transition: all 0.2s;
+}
+.tabs button:hover { background:#f1f1f1; }
+.tabs .active { background:var(--accent); color:#fff; border-color:var(--accent); }
+
+/* ------------------ Search Bar ------------------ */
+.searchbar { display:flex; gap:8px; margin: 12px 0; }
+.searchbar input {
+  flex:1; padding:10px 12px; border:1px solid var(--border); border-radius:8px; font-size: 14px; background:#fff;
+}
+.searchbar button {
+  padding:10px 14px; border:none; background:var(--accent); color:#fff; border-radius:8px; font-size: 14px;
+}
+.searchbar button:hover { background:#333; }
+
+/* ------------------ Filters ------------------ */
+.filters {
+  display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap:8px; margin: 12px 0;
+}
+.filters input {
+  padding:10px 12px; border:1px solid var(--border); border-radius:8px; font-size: 14px; background:#fff;
+}
+
+/* ------------------ Results / Cards ------------------ */
+.results { display:grid; gap:12px; }
+.card {
+  border:1px solid var(--border-soft); border-radius:12px; padding:14px; background:var(--card);
+  box-shadow:0 1px 2px rgba(0,0,0,0.05); transition: transform 0.2s;
+}
+.card:hover { transform: translateY(-2px); }
+.card-title { font-weight:600; font-size: 16px; margin-bottom: 4px; }
+.card-sub { color: var(--muted); margin-bottom:6px; font-size: 14px; }
+.bullets { margin: 6px 0 0 18px; font-size: 14px; }
+
+/* ------------------ Badges ------------------ */
+.badge {
+  display:inline-block; font-size:12px; padding:4px 8px; border:1px solid var(--border);
+  border-radius:999px; margin-right:6px; background:#f7f7f7;
+}
+
+/* ------------------ Semantic score ------------------ */
+.sem { font-size:12px; color: var(--muted); margin-top:6px; }
+
+/* ------------------ Resume upload ------------------ */
+.upload { display:flex; align-items:center; gap:8px; margin: 8px 0; }
+.upload input { font-size: 14px; }
+.upload button { padding:8px 12px; background:var(--accent); color:#fff; border:none; border-radius:6px; cursor:pointer; }
+.upload button:hover { background:#333; }
+
+/* ------------------ Empty state ------------------ */
+.empty { color: var(--muted); text-align:center; padding: 16px; }
+
+/* ------------------ Global buttons ------------------ */
+button { cursor:pointer; }
+
+/* ------------------ Form polish (Create Candidate) ------------------ */
+.form { display: grid; gap: 12px; }
+.form label { font-weight: 600; margin-top: 6px; }
+.form input {
+  padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; background:#fff;
+}
+.form button {
+  margin-top: 8px; padding: 12px; border: none; border-radius: 8px; background: var(--accent); color: #fff;
+}
+
+/* Grouped area for Education fields */
+.fieldset { border: 1px solid var(--border-soft); border-radius: 10px; padding: 12px; background: var(--card); margin-top: 8px; }
+.fieldset legend { padding: 0 6px; font-weight: 600; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+
+/* ------------------ Responsive tweaks ------------------ */
+@media (max-width: 560px) {
+  .grid-2 { grid-template-columns: 1fr; }
+  .searchbar { flex-direction: column; }
+  .tabs { flex-wrap: wrap; }
+}
+
+/* ------------------ Optional: Auto Dark Mode ------------------ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1115;
+    --fg: #e8e8e8;
+    --muted: #a0a4ad;
+    --border: #2a2f3a;
+    --border-soft: #1d212b;
+    --card: #151925;
+    --accent: #4f7cff;
+  }
+  .tabs button { background:#151925; }
+  .tabs button:hover { background:#1b2130; }
+  .badge { background:#1b2130; }
+}
