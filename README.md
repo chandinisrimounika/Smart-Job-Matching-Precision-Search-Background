@@ -153,15 +153,6 @@ Frontend runs at:
    * Query: *“remote frontend roles paying more than 20 LPA”* → ✅ Job appears with badges
 6. Show “why matched” badges + semantic score
 
----
-
-## 📹 Demo Video
-
-👉 Upload to YouTube/Drive and paste the link here:
-
-```
-[Demo Video Link](https://your-link-here.com)
-```
 
 ---
 
